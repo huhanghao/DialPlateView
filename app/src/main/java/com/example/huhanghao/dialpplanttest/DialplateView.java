@@ -96,6 +96,7 @@ public class DialplateView extends View {
      * @param mCanvas
      */
     private void drawPoint(Canvas mCanvas) {
+        mCanvas.save();
         Paint mPaint = new Paint();
         mPaint.setAntiAlias(true);
         mPaint.setColor(Color.GRAY);
@@ -115,8 +116,9 @@ public class DialplateView extends View {
             currentDegree = 180;
         }
         mCanvas.rotate(currentDegree, 0, 0);
-
         mCanvas.drawPath(path, mPaint);
+
+        mCanvas.restore();
     }
 
     /**
@@ -194,7 +196,4 @@ public class DialplateView extends View {
         mPointDegree = mDegree;
         initAnimator();
     }
-
-
-
 }
